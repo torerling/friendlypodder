@@ -69,6 +69,21 @@ ran and so one
 
 - Making the program not having to have http:// in all the rss feeds
 
+- Use argparse for parsing args
+
+- Check for errors
+
+- Fix problems with downloading on slow connections
+
+- change to pycurl for downloading?
+
+- make converter for conf file to convert to bp.conf (bashpodder)
+
+- fix spinners that keep on getting everywhere (need to find help with the
+threading issue there
+
+- add friendlypodder remove, to remove a podcast from the conf file
+
 And there is probably tons more that can be done, but that I don't know, I'm
 open for suggestions and help, but I'm just starting out, so I'm not sure if
 I will be able to make your grand plan come true, or that I will find it being
