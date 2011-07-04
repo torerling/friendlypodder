@@ -84,6 +84,8 @@ threading issue there
 
 - add friendlypodder remove, to remove a podcast from the conf file
 
+- fix config file linked to working directory, so it can be run outside of source dir
+
 And there is probably tons more that can be done, but that I don't know, I'm
 open for suggestions and help, but I'm just starting out, so I'm not sure if
 I will be able to make your grand plan come true, or that I will find it being
