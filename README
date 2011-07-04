@@ -1,0 +1,80 @@
+Friendlypodder, A friendly podcasting client
+============================================
+
+What is Friendlypodder?
+-----------------------
+Friendlypodder is a podcatcher, there is tons of them out there, but I'm just
+trying to make one that fits what I like, and I'm just giving it out to see
+if there is anyone else that likes it the same way.
+
+First of all, it's command line, and it stores data in text files, I've taken
+a bit of inspiration from bashpodder, but I like to have a bit more output when
+I run the podcatcher, so I have added something that is more or less eyecandy
+or a tiny bit of statistics porn if you will.
+
+Friendlypodder also uses utf8 for some characters, so it might be that it
+doesn't play too well with your terminal emulator, but if you're willing to 
+change it, you can use urxvt, roxterm or whichever else terminal that you like
+the best that has supports utf8/unicode
+
+How do I use Friendlypodder?
+----------------------------
+This is pretty simple really, first thing, go to friendlypodder.conf and look
+a bit into it, it should be rather self evident how it works, but here's the
+format:
+[Podcast name] http://feed.comes.here
+
+Even if you're just testing out, it would probably be the best to look into the
+file and delete some of the podcasts that I've added, there is quite a bit of
+them in there, so it can be quite a lot of episodes getting downloaded if you
+don't.
+
+Next smart step will be to run Friendlypodder with the catchup argument so that
+you don't get all the episodes that is in the feed. If there are any of the
+episodes that you want to download you can just go to the log directory and
+to the file that matches your podcast, and then delete the url of the
+episode(s) that you want to get downloaded
+It's smart to do this step every time that you have added a new podcast to the
+config file.
+Tips: you can use c instead of catchup if you don't want to write that much
+
+Then we're finally ready to do the normal run, the way that you probably will
+run it the most, you run it without arguments, or with download or d to go
+through all the rss feeds and download the episodes that are new.
+Don't worry, it will add the episodes that it has downloaded to the log so that
+you won't download the same episode a lot of times.
+
+Why did I start Friendlypodder?
+-------------------------------
+Friendlypodder is more or less my first little python project, and it's for me
+to try and get a bit used to programming in python with a small simple project,
+So don't shoot me if something's not right, or not optimal, I'll try and do my
+best to make it something that I can use myself at least
+
+What is coming up? / Roadmap
+----------------------------
+
+There are some things that I want to add when I get some more time,
+some of which are:
+
+- Adding podcasts from the program, so that you don't have to edit the
+textfile if that's how you want it
+
+- Catching up to all episode except the newest
+
+- Maybe some way of making records of statistics, like Mb downloaded and times
+ran and so one
+
+- Checking of the config file, to make it easier to find errors
+
+- Making the program not having to have http:// in all the rss feeds
+
+And there is probably tons more that can be done, but that I don't know, I'm
+open for suggestions and help, but I'm just starting out, so I'm not sure if
+I will be able to make your grand plan come true, or that I will find it being
+something that I want to add, but then you can make it yourself:) That's the
+nice thing about the GPL, you don't even need to ask for permission ;)
+
+I hope you will enjoy it :)
+
+Tor Erling
