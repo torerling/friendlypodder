@@ -119,7 +119,10 @@ def start_down_rss():
         for key in new_media:
             num_new_files += len(new_media[key])
     # Add code to get rid of the (s) thing
-    print '%d new file(s) to download' % num_new_files
+    if num_new_files == 1:
+        print '1 new file to download'
+    else:
+        print '%d new files to download' % num_new_files
     print ''
 
     return new_media
