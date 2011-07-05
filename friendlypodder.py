@@ -171,7 +171,7 @@ def read_config_file():
         f = open("friendlypodder.conf")
     # if not use ~/.friendlypodder.conf
     else:
-        f = open("~/friendlypodder.conf")
+        f = open("~/.friendlypodder.conf")
     lines = []
     for line in f.readlines():
         # The entries in the config file is written like this:
