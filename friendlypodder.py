@@ -162,7 +162,14 @@ def download_new_episodes(podcast_dict):
 
 def read_config_file():
     """Read in the config file and return a list of tuples"""
-    f = open("friendlypodder.conf")
+    beginpath = os.popen('pwd').read()
+    config_path = beginpath.strip() + '/friendlypodder.conf'
+    # use config path in working folder if it exists
+    if os.path.exists(config_path):
+        f = open("friendlypodder.conf")
+    # if not use ~/.friendlypodder.conf
+    else:
+        f = open("~/friendlypodder.conf")
     lines = []
     for line in f.readlines():
         # The entries in the config file is written like this:
@@ -272,17 +279,18 @@ def download_and_parse_rss(url):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        if sys.argv[1] == 'catchup' or sys.argv == 'c':
-            update_and_catch_up()
-        elif sys.argv[1] == 'download' or sys.argv == 'd':
-            update_and_download()
-        else:
-            print ''
-            make_title('usage')
-            print 'download (d) - Download new episodes'
-            print 'catchup (c) - Catch up on episodes'
-            print 'With no arguments download will be assumed'
-            print ''
-    else:
-        update_and_download()
+    read_config_file()
+#    if len(sys.argv) > 1:
+#        if sys.argv[1] == 'catchup' or sys.argv == 'c':
+#            update_and_catch_up()
+#        elif sys.argv[1] == 'download' or sys.argv == 'd':
+#            update_and_download()
+#        else:
+#            print ''
+#            make_title('usage')
+#            print 'download (d) - Download new episodes'
+#            print 'catchup (c) - Catch up on episodes'
+#            print 'With no arguments download will be assumed'
+#            print ''
+#    else:
+#        update_and_download()

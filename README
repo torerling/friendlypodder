@@ -44,6 +44,11 @@ through all the rss feeds and download the episodes that are new.
 Don't worry, it will add the episodes that it has downloaded to the log so that
 you won't download the same episode a lot of times.
 
+If you use friendlypodder from another directory than the one it's in, you can
+add the config file as ~/.friendlypodder.conf so that you won't get the
+config file missing, the podcasts will still be downloaded in the working
+directory
+
 Why did I start Friendlypodder?
 -------------------------------
 Friendlypodder is more or less my first little python project, and it's for me
@@ -84,7 +89,7 @@ threading issue there
 
 - add friendlypodder remove, to remove a podcast from the conf file
 
-- fix config file linked to working directory, so it can be run outside of source dir
+- add function so you can decide where to download the podcasts too
 
 And there is probably tons more that can be done, but that I don't know, I'm
 open for suggestions and help, but I'm just starting out, so I'm not sure if
