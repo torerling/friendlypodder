@@ -281,7 +281,6 @@ def download_and_parse_rss(url):
 
 
 if __name__ == "__main__":
-    read_config_file()
     if len(sys.argv) > 1:
         if sys.argv[1] == 'catchup' or sys.argv == 'c':
             update_and_catch_up()
