@@ -280,17 +280,17 @@ def download_and_parse_rss(url):
 
 if __name__ == "__main__":
     read_config_file()
-#    if len(sys.argv) > 1:
-#        if sys.argv[1] == 'catchup' or sys.argv == 'c':
-#            update_and_catch_up()
-#        elif sys.argv[1] == 'download' or sys.argv == 'd':
-#            update_and_download()
-#        else:
-#            print ''
-#            make_title('usage')
-#            print 'download (d) - Download new episodes'
-#            print 'catchup (c) - Catch up on episodes'
-#            print 'With no arguments download will be assumed'
-#            print ''
-#    else:
-#        update_and_download()
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'catchup' or sys.argv == 'c':
+            update_and_catch_up()
+        elif sys.argv[1] == 'download' or sys.argv == 'd':
+            update_and_download()
+        else:
+            print ''
+            make_title('usage')
+            print 'download (d) - Download new episodes'
+            print 'catchup (c) - Catch up on episodes'
+            print 'With no arguments download will be assumed'
+            print ''
+    else:
+        update_and_download()
