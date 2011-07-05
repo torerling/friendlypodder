@@ -88,14 +88,16 @@ def start_down_rss():
     feeddict = {}
     lenlist = [len(podcast[0]) for podcast in feeds]
     for i in range(len(feeds)):
-        feeddict[lenlist[i]] = feeds[i]
-
+        feeddict[lenlist[i]] = []
+    for i in range(len(feeds)):
+        feeddict[lenlist[i]].append(feeds[i])
     keys = feeddict.keys()
     keys.sort()
 
     sorted_feeds = []
     for i in keys:
-        sorted_feeds.append(feeddict[i])
+        for j in feeddict[i]:
+            sorted_feeds.append(j)
 
     feeds = sorted_feeds[:]
 
