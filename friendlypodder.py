@@ -169,9 +169,9 @@ def read_config_file():
     # use config path in working folder if it exists
     if os.path.exists(config_path):
         f = open("friendlypodder.conf")
-    # if not use ~/.friendlypodder.conf
+    # if not use os.path.expanduser(~/.friendlypodder.conf)
     else:
-        f = open("~/.friendlypodder.conf")
+        f = open(os.path.expanduser("~/.friendlypodder.conf"))
     lines = []
     for line in f.readlines():
         # The entries in the config file is written like this:
