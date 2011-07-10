@@ -47,7 +47,7 @@ def print_tick():
 
 def print_x():
     """Prints a red x-mark"""
-    print render("%(RED)s✘%(NORMAL)s")
+    print render("%(RED)s✘%(NORMAL)s"),
 
 
 def make_title(text):
@@ -100,6 +100,7 @@ def start_down_rss():
             sorted_feeds.append(j)
 
     feeds = sorted_feeds[:]
+    num_of_errors = 0
 
     for podcast in feeds:
         name = podcast[0]
@@ -108,22 +109,33 @@ def start_down_rss():
         #       I don't have a clue why, but the effect is nice :)
         print '\r  Downloading the rss feed for %s' % name,
         media = download_and_parse_rss(url)
+        if not media:
+            num_of_errors += 1
+            continue
         media = not_in_logs(media, name)
         new_media[name] = media
 
-    # Print number of new podcasts and a green tick
-    print '\n',
-    print_tick()
-    num_new_files = 0
-    if not new_media == {}:
-        for key in new_media:
-            num_new_files += len(new_media[key])
-    # Add code to get rid of the (s) thing
-    if num_new_files == 1:
-        print '1 new file to download'
+    if num_of_errors == 0:
+        # Print number of new podcasts and a green tick
+        print ''
+        print_tick()
+        num_new_files = 0
+        if not new_media == {}:
+            for key in new_media:
+                num_new_files += len(new_media[key])
+        # Add code to get rid of the (s) thing
+        if num_new_files == 1:
+            print '1 new file to download'
+        else:
+            print '%d new files to download' % num_new_files
+        print ''
     else:
-        print '%d new files to download' % num_new_files
-    print ''
+        # Print number of errors and red x
+        print '\n',
+        print_x()
+        print 'There was some errors in downloading %d feed(s)\n But I will \
+download the ones I got\nRerunning should fix it :)' % num_of_errors
+        print ''
 
     return new_media
 
@@ -268,7 +280,16 @@ def ensure_dir(dirname):
 
 def download_rss(url):
     """Downloads the rss file and returns it as a list of strings"""
-    return urllib2.urlopen(url)
+    # Added some error checking code
+    try:
+        return urllib2.urlopen(url)
+    except urllib2.HTTPError, e:
+        return False
+    except urllib2.URLError, e:
+        return False
+
+
+    #return urllib2.urlopen(url)
 
 
 def download_and_parse_rss(url):
@@ -277,7 +298,10 @@ def download_and_parse_rss(url):
     # rss-feed
     thread.start_new_thread(spinner, ())
     rss = download_rss(url)
-    medialist = parse(rss)
+    if rss:
+        medialist = parse(rss)
+    else:
+        return False
     # To get rid of the spinner
     return medialist
 
